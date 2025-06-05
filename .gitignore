@@ -1,3 +1,5 @@
 *.o
 *.out
 *.bmp
+
+rust-impl/target

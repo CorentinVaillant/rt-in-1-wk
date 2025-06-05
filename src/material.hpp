@@ -53,7 +53,7 @@ class metal : public material {
     double fuzz;
 }; 
 
-class dielectric : public material {
+class dielectric : public material {//!here
   public:
   dielectric(double refraction_index) : refraction_index(refraction_index) {}
   
