@@ -28,16 +28,28 @@ class camera{
         init();
         std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
+        int nb_step = image_height * image_width * samples_per_pixel;
+        int step = nb_step / 100;
+        int iter = 0;
+
+        std::clog << "[";
         for(int j = 0; j<image_height; j++){
             for(int i = 0; i<image_width;i++){
                 color pixel_color(0,0,0);
-                for(int sample = 0; sample < samples_per_pixel; sample++){
+                for(int _sample = 0; _sample < samples_per_pixel; _sample++){
+                    iter += 1;
+                    if (iter % step == 0){
+                        std::clog << "#";
+                        
+                    }
+
                     ray r = get_ray(i,j);
                     pixel_color += ray_color(r,max_depth,world);
                 }
                 write_color(std::cout, pixel_samples_scale * pixel_color); 
             }
         }
+        std::clog << "]\n";
     }
 
   private:
