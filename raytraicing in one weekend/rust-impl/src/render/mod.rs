@@ -3,11 +3,6 @@ use std::io::{stdout, Write};
 use crate::{color::{write_color_to_pixel_buff, Color, BLACK}, light::{ray::Ray, HitRecord, Hittable}, math::{cross, deg_to_rad, normalize, random_in_unit_disk, Intervall, Point3, Vec3}, render::pixel_buff::PixelBuff};
 pub mod pixel_buff;
 
-// struct CamFrameBasis{
-//     u :Vec3,
-//     v :Vec3,
-//     w :Vec3,
-// }
 
 pub struct Camera{
     // -- Public attributs --

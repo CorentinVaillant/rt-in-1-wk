@@ -2,4 +2,4 @@
 *.out
 *.bmp
 
-rust-impl/target
+*/rust-impl/target
