@@ -1,1 +1,1 @@
-https://raytracing.github.io/books/RayTracingTheNextWeek.html#texturemapping
+https://raytracing.github.io/books/RayTracingTheNextWeek.html#perlinnoise
