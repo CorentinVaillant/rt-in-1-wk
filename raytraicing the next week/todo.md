@@ -1,3 +1,1 @@
-# 6.4
-
-https://raytracing.github.io/books/RayTracingInOneWeekend.html#metal/fuzzyreflection
+https://raytracing.github.io/books/RayTracingTheNextWeek.html#texturemapping

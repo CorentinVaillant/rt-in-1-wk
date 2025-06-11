@@ -1,5 +1,5 @@
-#ifndef MATERIAL_H
-#define MATERIAL_H
+#ifndef MATERIAL_HPP
+#define MATERIAL_HPP
 
 #include "hittable.hpp"
 
@@ -25,7 +25,8 @@ class lambertian : public material{
         
         if(scatter_dir.near_zero())
             scatter_dir = rec.normal;
-        scattered = ray(rec.p, scatter_dir);
+
+        scattered = ray(rec.p, scatter_dir,r_in.time());
         attenuation = albedo;
         return true;
 
@@ -43,7 +44,7 @@ class metal : public material {
     const override {
         vec3 reflected = reflect(r_in.direction(), rec.normal);
         reflected = normalize(reflected) + (fuzz * random_unit_vec());
-        scattered = ray(rec.p, reflected);
+        scattered = ray(rec.p, reflected,r_in.time());
         attenuation = albedo;
         return (dot(scattered.direction(), rec.normal) > 0.);
     }
@@ -74,7 +75,7 @@ class dielectric : public material {//!here
     else
       direction = refract(unit_dir, rec.normal, ri);
     
-    scattered = ray(rec.p,direction);
+    scattered = ray(rec.p,direction,r_in.time());
     return true;
   }
 

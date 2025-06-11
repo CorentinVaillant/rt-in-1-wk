@@ -9,6 +9,17 @@ public:
 
     interval(double min,double max) : min(min), max(max){}
 
+    interval expend(double delta){
+        auto pad = delta /2;
+        return interval(min+pad,max+pad);
+    }
+
+    interval(const interval& a, const interval& b) {
+        // Create the interval tightly enclosing the two input intervals.
+        min = a.min <= b.min ? a.min : b.min;
+        max = a.max >= b.max ? a.max : b.max;
+    }
+    
     double size() const{
         return max - min;
     }

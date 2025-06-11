@@ -113,8 +113,9 @@ class camera{
 
         auto ray_org = (defocus_angle <= 0) ? center : defocus_disk_sample();
         auto ray_dir = pixel_sample - ray_org;
+        auto ray_time = random_double();
 
-        return ray(ray_org, ray_dir);
+        return ray(ray_org, ray_dir,ray_time);
 
     }
 
